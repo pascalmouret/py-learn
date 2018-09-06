@@ -1,4 +1,4 @@
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, Iterator
 
 
 Item = TypeVar('Item')
@@ -23,3 +23,9 @@ class List(Generic[Item]):
             return self
         else:
             return self.tail.last()
+
+    def __iter__(self) -> Iterator[Item]:
+        head = self
+        while head:
+            yield head.value
+            head = head.tail
