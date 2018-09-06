@@ -1,13 +1,14 @@
-class List():
-    tail = None
+from typing import TypeVar, Generic
 
-    def __init__(self, value):
+Item = TypeVar('Item')
+
+
+class List(Generic[Item]):
+    def __init__(self, value: Item) -> None:
         self.value = value
+        self.tail = None
 
-    def append(self, item):
-        if not isinstance(item, List):
-            item = List(item)
-        
+    def append(self, value: Item):
         if self.tail is None:
             self.tail = item
         else:
