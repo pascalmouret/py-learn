@@ -15,8 +15,8 @@ class Sortable(abc.ABCMeta):
     def __lt__(self, other: Any) -> bool: ...
 
 
-def qsort(array: List[Sortable]):
-    def process_partition(low: int, high: int):
+def qsort(array: List[Sortable]) -> List[Sortable]:
+    def process_partition(low: int, high: int) -> None:
         if low >= high:
             return
 
