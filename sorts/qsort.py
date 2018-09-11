@@ -48,7 +48,7 @@ class QsortSpec(unittest.TestCase):
     def test_empty(self):
         self.assertEqual(qsort([]), [])
 
-    def test_simple(self):
+    def test_sort(self):
         self.assertEqual(
             qsort([3, 1]),
             [1, 3]
@@ -56,6 +56,16 @@ class QsortSpec(unittest.TestCase):
         self.assertEqual(
             qsort([7, 4, 2, 1, 0, 9, 7]), 
             [0, 1, 2, 4, 7, 7, 9]
+        )
+
+    def test_equal(self):
+        self.assertEqual(
+            qsort([2, 4, 4, 2]),
+            [2, 2, 4, 4]
+        )
+        self.assertEqual(
+            qsort([7, 7, 7, 7]),
+            [7, 7, 7, 7]
         )
 
 
